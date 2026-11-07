@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Snippet Paster",
+  "version": "1.0.0",
+  "description": "Press a hotkey to pick a saved, formatted text snippet and paste it where your cursor is.",
+  "permissions": ["storage", "scripting", "activeTab"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "open-snippet-menu": {
+      "suggested_key": {
+        "default": "Alt+Shift+V",
+        "mac": "Alt+Shift+V"
+      },
+      "description": "Open the snippet menu"
+    }
+  },
+  "action": {
+    "default_title": "Snippet Paster (click to manage snippets)"
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

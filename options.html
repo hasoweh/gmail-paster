@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Snippet Paster – Manage snippets</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <header>
+    <h1>Snippet Paster</h1>
+    <div class="shortcut">
+      Hotkey: <kbd id="hotkey">…</kbd>
+      <button id="change-hotkey" class="link">Change</button>
+    </div>
+  </header>
+
+  <main>
+    <aside>
+      <div class="aside-actions">
+        <button id="add" class="primary">+ New snippet</button>
+      </div>
+      <ul id="list"></ul>
+      <div class="aside-actions small">
+        <button id="export">Export</button>
+        <button id="import">Import</button>
+        <input type="file" id="import-file" accept="application/json" hidden>
+      </div>
+    </aside>
+
+    <section id="editor" hidden>
+      <label class="field">
+        <span>Name (shown in the menu)</span>
+        <input id="title" type="text" placeholder="e.g. Thanks for reaching out">
+      </label>
+
+      <div class="field">
+        <span>Text (formatting is kept when pasted)</span>
+        <div class="toolbar">
+          <button data-cmd="bold" title="Bold (Ctrl+B)"><b>B</b></button>
+          <button data-cmd="italic" title="Italic (Ctrl+I)"><i>I</i></button>
+          <button data-cmd="underline" title="Underline (Ctrl+U)"><u>U</u></button>
+          <button data-cmd="strikeThrough" title="Strikethrough"><s>S</s></button>
+          <span class="sep"></span>
+          <button data-cmd="insertUnorderedList" title="Bulleted list">• List</button>
+          <button data-cmd="insertOrderedList" title="Numbered list">1. List</button>
+          <button id="link" title="Add link">Link</button>
+          <span class="sep"></span>
+          <button data-cmd="removeFormat" title="Clear formatting">Clear</button>
+        </div>
+        <div id="body" contenteditable="true" spellcheck="true"></div>
+      </div>
+
+      <div class="editor-actions">
+        <button id="up" title="Move up">↑</button>
+        <button id="down" title="Move down">↓</button>
+        <span class="status" id="status"></span>
+        <button id="delete" class="danger">Delete</button>
+      </div>
+    </section>
+
+    <section id="empty" class="empty">
+      <p>Select a snippet or create a new one.</p>
+    </section>
+  </main>
+
+  <script src="options.js"></script>
+</body>
+</html>
